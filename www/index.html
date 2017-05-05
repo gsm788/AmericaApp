@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+
+  <body ng-app="starter" ng-controller="ImageCtrl">
+    <ion-pane>
+      <ion-header-bar class="bar-light">
+        <h1 class="title">Testing</h1>
+      </ion-header-bar>
+
+      <ion-tabs class = "tabs-icon-only">
+
+       <ion-tab title = "Home" icon-on = "ion-ios-filing"
+          icon-off = "ion-ios-filing">
+</br>
+</br>
+</br>
+
+
+
+<form name="myForm">
+
+
+<div class="list">
+    <label class="item item-input item-stacked-label">
+    <span class="input-label">Documento</span>
+    <input type="number" name="ident" ng-model="data.ident" placeholder="Documento">
+</label>
+
+<label class="item item-input item-stacked-label">
+    <span class="input-label">Apellidos</span>
+    <input type="text" name="lastName" ng-model="data.lastName" placeholder="Apellidos">
+</label>
+
+<label class="item item-input item-stacked-label">
+    <span class="input-label">Nombres</span>
+    <input type="text" name="name1" ng-model="data.name1" placeholder="Nombres">
+</label>
+
+<label class="item item-input item-stacked-label">
+    <span class="input-label">Fecha de Nacimiento</span>
+    <input type="date" name="bday" ng-model="data.bday" placeholder="Fecha de Nacimiento">
+</label>
+
+<label class="item item-input item-stacked-label">
+    <span class="input-label">Teléfono</span>
+    <input type="tel" name="phone" ng-model="data.phone" placeholder="Teléfono">
+</label>
+
+<label class="item item-input item-stacked-label">
+    <span class="input-label">Correo Electrónico</span>
+    <input type="email" name="email" ng-model="data.email" placeholder="Correo Electrónico">
+</label>
+
+<label class = "item item-input item-select">
+    <div class = "input-label">
+      Monto Solicitado
+</div>
+
+    <select name="amount" ng-model="data.amount">
+      <option>1.000.000</option>
+      <option>5.000.000</option>
+      <option>10.000.000</option>
+      <option>15.000.000</option>
+      <option>20.000.000</option>
+      <option>25.000.000</option>
+      <option>30.000.000</option>
+
+    </select>
+ </label>
+
+ <label class = "item item-input item-select">
+     <div class = "input-label">
+       Plazo
+ </div>
+
+     <select name="months" ng-model="data.months">
+       <option>6</option>
+       <option>12</option>
+       <option>18</option>
+       <option>24</option>
+       <option>36</option>
+       <option>48</option>
+       <option>60</option>
+     </select>
+  </label>
+
+
+        </div>
+
+        <button class="button icon-left ion-camera" ng-click="loadImage()">Tomar Foto1</button>
+        <button class="button icon-center ion-camera" ng-click="loadImage2()">Tomar Foto2</button>
+        <button class="button icon-left ion-upload" ng-click="uploadImage()" ng-disabled="image === null">Guardar</button>
+
+        </form>
+
+        <img ng-src="{{pathForImage(image)}}" style="width: 20%; height: 20%;">
+        <img ng-src="{{pathForImage(image2)}}" style="width: 20%; height: 20%;">
+
+
+
+
+    </ion-tab>
+
+    <ion-tab title = "About" icon-on = "ion-search"
+      icon-off = "ion-search">
+<ion-content>
+<p>
+  aca va el tema
+  del buscador
+
+</p>
+</ion-content>
+
+
+
+    </ion-tab>
+</ion-tabs>
+
+    </ion-pane>
+  </body>
+
+</html>
